@@ -1,0 +1,228 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123456",
+      "name": "ผู้ดูแลระบบ",
+      "role": "admin",
+      "token": "token-admin-2026"
+    },
+    {
+      "id": 2,
+      "username": "teacher",
+      "password": "123456",
+      "name": "ครูสมศรี ใจงาม",
+      "role": "teacher",
+      "token": "token-teacher-2026"
+    },
+    {
+      "id": 3,
+      "username": "student",
+      "password": "123456",
+      "name": "ด.ช.กิตติพัฒน์ ใจดี",
+      "role": "student",
+      "token": "token-student-2026",
+      "studentId": 1
+    },
+    {
+      "id": 4,
+      "username": "student2",
+      "password": "123456",
+      "name": "นายภาณุวัฒน์ พรหมมา",
+      "role": "student",
+      "token": "token-student2-2026",
+      "studentId": 9
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "code": "66001",
+      "name": "ด.ช.กิตติพัฒน์ ใจดี",
+      "classroom": "ม.1/1"
+    },
+    {
+      "id": 2,
+      "code": "66002",
+      "name": "ด.ญ.ชลธิชา สายทอง",
+      "classroom": "ม.1/1"
+    },
+    {
+      "id": 3,
+      "code": "66003",
+      "name": "ด.ช.ธนกร ศรีสุข",
+      "classroom": "ม.1/1"
+    },
+    {
+      "id": 4,
+      "code": "66004",
+      "name": "ด.ญ.ปวีณา แก้วมณี",
+      "classroom": "ม.1/2"
+    },
+    {
+      "id": 5,
+      "code": "66005",
+      "name": "ด.ช.พีรพล บุญมา",
+      "classroom": "ม.1/2"
+    },
+    {
+      "id": 6,
+      "code": "66006",
+      "name": "ด.ญ.รัชนีกร ทองดี",
+      "classroom": "ม.1/2"
+    },
+    {
+      "id": 7,
+      "code": "65001",
+      "name": "นายณัฐวุฒิ วงศ์ไทย",
+      "classroom": "ม.2/1"
+    },
+    {
+      "id": 8,
+      "code": "65002",
+      "name": "นางสาวกัญญาณัฐ มีสุข",
+      "classroom": "ม.2/1"
+    },
+    {
+      "id": 9,
+      "code": "65003",
+      "name": "นายภาณุวัฒน์ พรหมมา",
+      "classroom": "ม.2/1"
+    },
+    {
+      "id": 10,
+      "code": "65004",
+      "name": "นางสาวสุภาวดี จันทร์เพ็ญ",
+      "classroom": "ม.2/2"
+    }
+  ],
+  "records": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "points": 10,
+      "reason": "จิตอาสา / ช่วยงานโรงเรียน",
+      "note": "ช่วยจัดสถานที่งานกีฬาสี",
+      "date": "2026-10-20T08:30:00.000Z",
+      "recordedBy": "ผู้ดูแลระบบ"
+    },
+    {
+      "id": 2,
+      "studentId": 1,
+      "points": -5,
+      "reason": "มาสาย",
+      "note": "",
+      "date": "2026-10-27T07:55:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 3,
+      "studentId": 3,
+      "points": -10,
+      "reason": "ใช้โทรศัพท์ในเวลาเรียน",
+      "note": "คาบคณิตศาสตร์",
+      "date": "2026-10-21T03:10:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 4,
+      "studentId": 3,
+      "points": -20,
+      "reason": "หนีเรียน",
+      "note": "",
+      "date": "2026-10-28T06:00:00.000Z",
+      "recordedBy": "ผู้ดูแลระบบ"
+    },
+    {
+      "id": 5,
+      "studentId": 3,
+      "points": -5,
+      "reason": "แต่งกายผิดระเบียบ",
+      "note": "ไม่ใส่เข็มขัด",
+      "date": "2026-11-02T01:00:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 6,
+      "studentId": 4,
+      "points": 20,
+      "reason": "ได้รับรางวัล / ทำชื่อเสียง",
+      "note": "ชนะเลิศประกวดเรียงความ",
+      "date": "2026-10-15T02:00:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 7,
+      "studentId": 5,
+      "points": -5,
+      "reason": "มาสาย",
+      "note": "",
+      "date": "2026-10-30T00:50:00.000Z",
+      "recordedBy": "ผู้ดูแลระบบ"
+    },
+    {
+      "id": 8,
+      "studentId": 7,
+      "points": -10,
+      "reason": "ไม่ส่งงาน",
+      "note": "",
+      "date": "2026-10-22T04:00:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 9,
+      "studentId": 9,
+      "points": -20,
+      "reason": "ทะเลาะวิวาท",
+      "note": "มีเรื่องกับรุ่นพี่ที่โรงอาหาร",
+      "date": "2026-10-18T05:20:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 10,
+      "studentId": 9,
+      "points": -10,
+      "reason": "หนีเรียน",
+      "note": "",
+      "date": "2026-10-29T06:30:00.000Z",
+      "recordedBy": "ผู้ดูแลระบบ"
+    },
+    {
+      "id": 11,
+      "studentId": 9,
+      "points": -5,
+      "reason": "มาสาย",
+      "note": "",
+      "date": "2026-11-03T00:45:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 12,
+      "studentId": 9,
+      "points": 5,
+      "reason": "ช่วยเหลือเพื่อน / ครู",
+      "note": "ช่วยครูยกของ",
+      "date": "2026-11-04T07:00:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    },
+    {
+      "id": 13,
+      "studentId": 10,
+      "points": 10,
+      "reason": "เก็บของได้ส่งคืน",
+      "note": "เก็บกระเป๋าสตางค์ได้",
+      "date": "2026-11-01T03:30:00.000Z",
+      "recordedBy": "ผู้ดูแลระบบ"
+    },
+    {
+      "id": 14,
+      "studentId": 2,
+      "points": 5,
+      "reason": "เข้าร่วมกิจกรรม",
+      "note": "",
+      "date": "2026-11-05T08:00:00.000Z",
+      "recordedBy": "ครูสมศรี ใจงาม"
+    }
+  ]
+}

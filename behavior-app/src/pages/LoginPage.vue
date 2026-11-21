@@ -74,8 +74,7 @@ const showError = ref(false)
 const demoAccounts = [
   { username: 'admin', label: 'ผู้ดูแลระบบ', icon: 'admin_panel_settings' },
   { username: 'teacher', label: 'ครู', icon: 'school' },
-  { username: 'student', label: 'นักเรียน', icon: 'face' },
-  { username: 'student2', label: 'นักเรียน (คนที่ 2)', icon: 'face' }
+  { username: 'student', label: 'นักเรียน', icon: 'face' }
 ]
 
 const onLogin = async () => {

@@ -29,12 +29,12 @@
               class="full-width q-mt-md" :loading="authStore.loading" />
           </q-form>
 
-          <div class="text-center text-caption text-blue-grey-3 q-mt-lg q-mb-xs">บัญชีทดลอง (กดเพื่อเข้าสู่ระบบ)</div>
-          <div class="row justify-center q-gutter-xs">
-            <q-chip v-for="demo in demoAccounts" :key="demo.username" clickable outline color="white"
-              :icon="demo.icon" @click="loginDemo(demo.username)">
-              {{ demo.label }}
-            </q-chip>
+          <div class="text-center text-caption text-blue-grey-3 q-mt-lg q-mb-xs">บัญชีทดลอง (รหัสผ่าน 123456 ทุกบัญชี)</div>
+          <div class="demo-list text-caption text-blue-grey-2">
+            <div v-for="demo in demoAccounts" :key="demo.username" class="row items-center justify-between q-py-xs">
+              <span><q-icon :name="demo.icon" size="xs" class="q-mr-xs" />{{ demo.label }}</span>
+              <span class="text-white text-weight-medium">{{ demo.username }}</span>
+            </div>
           </div>
         </q-card>
 
@@ -74,14 +74,9 @@ const showError = ref(false)
 const demoAccounts = [
   { username: 'admin', label: 'ผู้ดูแลระบบ', icon: 'admin_panel_settings' },
   { username: 'teacher', label: 'ครู', icon: 'school' },
-  { username: 'student', label: 'นักเรียน', icon: 'face' }
+  { username: 'student', label: 'นักเรียน', icon: 'face' },
+  { username: 'student2', label: 'นักเรียน (คนที่ 2)', icon: 'face' }
 ]
-
-const loginDemo = (name) => {
-  username.value = name
-  password.value = '123456'
-  onLogin()
-}
 
 const onLogin = async () => {
   const success = await authStore.login(username.value, password.value)
@@ -120,6 +115,11 @@ const onLogin = async () => {
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
+}
+
+.demo-list {
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .logo-glow {

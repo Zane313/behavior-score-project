@@ -50,18 +50,17 @@ QCLI_APP_TITLE=ระบบคะแนนความประพฤติ
 
 ## Deploy ขึ้น Cloud — บทที่ 8
 
-### 1) Deploy Mock API (json-server) ขึ้น Render (https://render.com)
+### 1) Deploy Mock API (json-server) ขึ้น Vercel
 MockAPI แพ็กเกจฟรีสร้างได้แค่ 2 resource แต่ระบบนี้ใช้ 3 ตัว (users, students, records)
-จึงนำ json-server ตัวเดิมในโฟลเดอร์ `behavior-server` ขึ้น Render แทน
+จึงนำ json-server ตัวเดิมในโฟลเดอร์ `behavior-server` ขึ้น Vercel เป็น Serverless Function แทน
+(`behavior-server/api/index.js` + `behavior-server/vercel.json`)
 
-- New → Web Service → เลือก repo นี้
+- Vercel → Add New Project → เลือก repo นี้
 - Root Directory: `behavior-server`
-- Build Command: `npm install`
-- Start Command: `npm start`
-- Instance Type: **Free**
+- Application Preset: **Other** แล้วกด Deploy
+- ได้ URL ของ API เช่น `https://behavior-score-api.vercel.app` (ลองเปิด `/students` ดูได้)
 
-> แพ็กเกจฟรีของ Render จะหลับเมื่อไม่มีคนใช้ 15 นาที การเรียกครั้งแรกจะช้า ~1 นาที
-> ก่อนนำเสนอให้เปิด URL ของ API ทิ้งไว้ก่อน 1-2 นาที (และข้อมูลจะกลับเป็นค่าเริ่มต้นทุกครั้งที่เซิร์ฟเวอร์รีสตาร์ท)
+> ข้อมูลที่เพิ่ม/แก้/ลบจะอยู่ในหน่วยความจำของเซิร์ฟเวอร์ เมื่อไม่มีคนใช้งานสักพักจะกลับเป็นค่าเริ่มต้นจาก `db.json`
 
 ### 2) Push ขึ้น GitHub
 ```
@@ -77,8 +76,9 @@ $ git push -u origin main
 - Root Directory: `behavior-app`
 - Application Preset: **Other**
 - Build Command: `npm run build`
+- Install Command: `npm install --ignore-scripts`
 - Output Directory: `dist/spa`
-- Environment Variables: `QCLI_API_URL` = URL ของ API บน Render เช่น `https://behavior-score-api.onrender.com`
+- Environment Variables: `QCLI_API_URL` = URL ของ API เช่น `https://behavior-score-api.vercel.app`
 - มีไฟล์ `vercel.json` แล้ว (แก้ปัญหา 404 ตอน Refresh)
 
 ---

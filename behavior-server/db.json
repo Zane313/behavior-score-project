@@ -24,15 +24,6 @@
       "role": "student",
       "token": "token-student-2026",
       "studentId": 1
-    },
-    {
-      "id": 4,
-      "username": "student2",
-      "password": "123456",
-      "name": "นายภาณุวัฒน์ พรหมมา",
-      "role": "student",
-      "token": "token-student2-2026",
-      "studentId": 9
     }
   ],
   "students": [

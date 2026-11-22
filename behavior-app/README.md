@@ -50,17 +50,17 @@ QCLI_APP_TITLE=ระบบคะแนนความประพฤติ
 
 ## Deploy ขึ้น Cloud — บทที่ 8
 
-### 1) Deploy Mock API (json-server) ขึ้น Vercel
-MockAPI แพ็กเกจฟรีสร้างได้แค่ 2 resource แต่ระบบนี้ใช้ 3 ตัว (users, students, records)
-จึงนำ json-server ตัวเดิมในโฟลเดอร์ `behavior-server` ขึ้น Vercel เป็น Serverless Function แทน
-(`behavior-server/api/index.js` + `behavior-server/vercel.json`)
+### 1) Deploy API ขึ้น Vercel + MockAPI
+- **MockAPI** (https://mockapi.io) เก็บข้อมูลจริงแบบถาวร: resource `students` และ `records` (แพ็กเกจฟรีได้ 2 resource พอดี)
+- **users** (บัญชีเข้าระบบ) อ่านอย่างเดียวจาก `behavior-server/db.json`
+- `behavior-server/api/index.js` เป็น Serverless Function บน Vercel ทำหน้าที่รวมทั้งสองอย่างให้อยู่ใน URL เดียว
+  หน้าเว็บจึงเรียก `/users`, `/students`, `/records` ได้เหมือน json-server เดิมทุกอย่าง
 
-- Vercel → Add New Project → เลือก repo นี้
-- Root Directory: `behavior-server`
-- Application Preset: **Other** แล้วกด Deploy
+ขั้นตอน
+- MockAPI → New project → สร้าง resource `students` และ `records` แล้วใส่ข้อมูลจาก `db.json`
+- Vercel → Add New Project → เลือก repo นี้ → Root Directory: `behavior-server` → Application Preset: **Other** → Deploy
+- (ถ้าใช้ MockAPI โปรเจคอื่น) ตั้ง Environment Variable `MOCKAPI_URL` = `https://xxxxxxxx.mockapi.io/api`
 - ได้ URL ของ API เช่น `https://behavior-score-api.vercel.app` (ลองเปิด `/students` ดูได้)
-
-> ข้อมูลที่เพิ่ม/แก้/ลบจะอยู่ในหน่วยความจำของเซิร์ฟเวอร์ เมื่อไม่มีคนใช้งานสักพักจะกลับเป็นค่าเริ่มต้นจาก `db.json`
 
 ### 2) Push ขึ้น GitHub
 ```

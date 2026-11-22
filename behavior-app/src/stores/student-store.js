@@ -31,6 +31,19 @@ export const useStudentStore = defineStore('student', () => {
     console.error(error)
   }
 
+  async function isCodeTaken(code, exceptId = null) {
+    try {
+      const response = await api.get('/students', { params: { code } })
+      return response.data.some(item =>
+        String(item.code).trim() === String(code).trim() && String(item.id) !== String(exceptId)
+      )
+    } catch {
+      return students.value.some(item =>
+        String(item.code).trim() === String(code).trim() && String(item.id) !== String(exceptId)
+      )
+    }
+  }
+
   async function fetchStudents() {
     loading.value = true
     errorMessage.value = ''
@@ -99,6 +112,7 @@ export const useStudentStore = defineStore('student', () => {
 
   return {
     students, loading, errorMessage,
-    fetchStudents, fetchStudentById, getStudentById, createStudent, updateStudent, deleteStudent
+    fetchStudents, fetchStudentById, getStudentById, createStudent, updateStudent, deleteStudent,
+    isCodeTaken
   }
 })

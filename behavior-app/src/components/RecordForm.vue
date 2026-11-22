@@ -9,7 +9,7 @@
       <q-btn flat round dense icon="close" aria-label="ปิด" v-close-popup />
     </q-card-section>
 
-    <q-form ref="myForm" @submit="onSave">
+    <q-form ref="myForm" greedy @submit="onSave">
       <q-card-section class="q-gutter-y-md">
         <div>
           <div class="text-subtitle2 q-mb-xs">พฤติกรรม <span class="text-negative">*</span></div>

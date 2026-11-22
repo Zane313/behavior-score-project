@@ -66,7 +66,7 @@ const router = useRouter()
 const $q = useQuasar()
 const authStore = useAuthStore()
 const leftDrawerOpen = ref(false)
-const appTitle = import.meta.env.QCLI_APP_TITLE || 'ระบบคะแนนความประพฤติ'
+const appTitle = 'ระบบบันทึกคะแนนความประพฤตินักเรียน'
 const shortTitle = 'คะแนนความประพฤติ'
 
 const menus = computed(() => {

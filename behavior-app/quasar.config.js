@@ -36,7 +36,7 @@ export default defineConfig(() => {
 
       lang: 'th',
 
-      plugins: ['Notify', 'Loading', 'Dialog']
+      plugins: ['Notify', 'Loading', 'Dialog', 'Meta']
     },
 
     animations: []

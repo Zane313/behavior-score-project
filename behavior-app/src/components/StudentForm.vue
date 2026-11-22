@@ -6,10 +6,11 @@
       <q-btn flat round dense icon="close" aria-label="ปิด" v-close-popup />
     </q-card-section>
 
-    <q-form ref="myForm" @submit="onSave">
+    <q-form ref="myForm" greedy @submit="onSave">
       <q-card-section class="q-gutter-y-sm">
         <q-input v-model="code" label="รหัสนักเรียน *" outlined autofocus inputmode="numeric"
-          :rules="[val => !!(val && String(val).trim()) || 'กรุณากรอกรหัสนักเรียน']">
+          :rules="[val => !!(val && String(val).trim()) || 'กรุณากรอกรหัสนักเรียน']"
+          :error="codeError ? true : null" :error-message="codeError">
           <template v-slot:prepend><q-icon name="badge" /></template>
         </q-input>
 
@@ -26,15 +27,16 @@
 
       <q-card-actions align="right" class="q-px-md q-pb-md">
         <q-btn flat label="ยกเลิก" color="grey-8" v-close-popup />
-        <q-btn type="submit" unelevated label="บันทึก" icon="save" color="primary" :loading="saving" />
+        <q-btn type="submit" unelevated label="บันทึก" icon="save" color="primary" :loading="saving || checking" />
       </q-card-actions>
     </q-form>
   </q-card>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { CLASSROOM_OPTIONS } from '@/config/app-config'
+import { useStudentStore } from '@/stores/student-store'
 
 const props = defineProps({
   student: {
@@ -53,6 +55,14 @@ const myForm = ref(null)
 const code = ref('')
 const name = ref('')
 const classroom = ref(null)
+const codeError = ref('')
+const checking = ref(false)
+
+const studentStore = useStudentStore()
+
+watch(code, () => {
+  codeError.value = ''
+})
 
 onMounted(() => {
   if (props.student) {
@@ -62,9 +72,17 @@ onMounted(() => {
   }
 })
 
-const onSave = () => {
+const onSave = async () => {
+  const newCode = String(code.value).trim()
+  checking.value = true
+  const taken = await studentStore.isCodeTaken(newCode, props.student?.id)
+  checking.value = false
+  if (taken) {
+    codeError.value = 'รหัสนักเรียนนี้มีอยู่ในระบบแล้ว'
+    return
+  }
   emit('save', {
-    code: String(code.value).trim(),
+    code: newCode,
     name: name.value.trim(),
     classroom: classroom.value
   })

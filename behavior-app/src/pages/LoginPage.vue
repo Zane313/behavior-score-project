@@ -9,7 +9,7 @@
             <div class="text-caption text-blue-grey-3">กรุณาเข้าสู่ระบบเพื่อใช้งาน</div>
           </div>
 
-          <q-form @submit="onLogin">
+          <q-form greedy @submit="onLogin">
             <q-input v-model="username" dark outlined label="ชื่อผู้ใช้" class="q-mb-sm"
               :rules="[val => !!val || 'กรุณากรอกชื่อผู้ใช้']">
               <template #prepend><q-icon name="person" /></template>

@@ -42,7 +42,6 @@ $ quasar dev
 ไฟล์ `.env` 
 ```
 QCLI_API_URL=http://localhost:3000
-QCLI_APP_TITLE=ระบบคะแนนความประพฤติ
 ```
 
 ---

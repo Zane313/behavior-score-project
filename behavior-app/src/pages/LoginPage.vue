@@ -5,7 +5,7 @@
         <q-card class="login-card q-pa-lg">
           <div class="text-center q-mb-lg">
             <q-avatar size="72px" class="logo-glow" color="primary" text-color="white" icon="verified_user" />
-            <div class="text-h5 text-weight-bold q-mt-md text-white">ระบบคะแนนความประพฤติ</div>
+            <div class="text-h5 text-weight-bold q-mt-md text-white">ระบบบันทึกคะแนนความประพฤตินักเรียน</div>
             <div class="text-caption text-blue-grey-3">กรุณาเข้าสู่ระบบเพื่อใช้งาน</div>
           </div>
 
@@ -58,13 +58,15 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { useQuasar } from 'quasar'
+import { useQuasar, useMeta } from 'quasar'
 import { useAuthStore } from '@/stores/auth-store'
 
 const $q = useQuasar()
 const router = useRouter()
 const route = useRoute()
 const authStore = useAuthStore()
+
+useMeta({ title: 'เข้าสู่ระบบ' })
 
 const username = ref('')
 const password = ref('')

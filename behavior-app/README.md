@@ -1,7 +1,6 @@
 # ระบบบันทึกคะแนนความประพฤตินักเรียน (Behavior Score App)
 
 Term Project วิชา 968-362 Front-end Development
-พัฒนาด้วย Vue 3 (Composition API) + Quasar Framework + Pinia + Axios
 
 ## ความสามารถของระบบ
 
@@ -40,7 +39,7 @@ $ npm install
 $ quasar dev
 ```
 
-ไฟล์ `.env` (บทที่ 8)
+ไฟล์ `.env` 
 ```
 QCLI_API_URL=http://localhost:3000
 QCLI_APP_TITLE=ระบบคะแนนความประพฤติ
@@ -48,7 +47,7 @@ QCLI_APP_TITLE=ระบบคะแนนความประพฤติ
 
 ---
 
-## Deploy ขึ้น Cloud — บทที่ 8
+## Deploy ขึ้น Cloud 
 
 ### 1) Deploy API ขึ้น Vercel + MockAPI
 - **MockAPI** (https://mockapi.io) เก็บข้อมูลจริงแบบถาวร: resource `students` และ `records` (แพ็กเกจฟรีได้ 2 resource พอดี)
@@ -83,7 +82,7 @@ $ git push -u origin main
 
 ---
 
-## โครงสร้างโปรเจค และที่มาของโค้ด (อ้างอิงเอกสารประกอบการสอน)
+## โครงสร้างโปรเจค และที่มาของโค้ด 
 
 ```
 src/
